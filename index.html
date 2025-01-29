@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Energy Consumption</title>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    </head>
+    <style>
+        @keyframes borderAnimation {
+            0% {
+                border-color: #4CAF50;
+                box-shadow: 0 0 25px #4CAF50;
+            }
+            25% {
+                border-color: #FF5733;
+                box-shadow: 0  0 25px #FF5733;
+            }
+            50% {
+                border-color: #FFC300;
+                box-shadow: 0 0 25px #FFC300;
+            }
+            75% {
+                border-color: #3498DB;
+                box-shadow: 0 0 25px #3498DB;
+            }
+            100% {
+                border-color: #4CAF50;
+                box-shadow: 0 0 25px #4CAF50;
+            }
+        }
+        @keyframes borderAnimation1 {
+            0% {
+                border-top-color: #4CAF50;
+                border-right-color: #FF5733;
+                border-bottom-color: #FFC300;
+                border-left-color: #3498DB;
+            }
+            25% {
+                border-top-color: #3498DB;
+                border-right-color: #4CAF50;
+                border-bottom-color: #FF5733;
+                border-left-color: #FFC300;
+            }
+            50% {
+                border-top-color: #FFC300;
+                border-right-color: #3498DB;
+                border-bottom-color: #4CAF50;
+                border-left-color: #FF5733;
+            }
+            75% {
+                border-top-color: #FF5733;
+                border-right-color: #FFC300;
+                border-bottom-color: #3498DB;
+                border-left-color: #4CAF50;
+            }
+            100% {
+                border-top-color: #4CAF50;
+                border-right-color: #FF5733;
+                border-bottom-color: #FFC300;
+                border-left-color: #3498DB;
+            }
+        }
+        @keyframes borderAnimation2 {
+            0% {
+                color: #FF5733;
+            }
+            25%{
+                color:orangered
+            }
+            50%{
+                color:orange;
+            }
+            75% {
+                color:rgb(255, 174, 0);
+            }
+            100%{
+                color:orangered;
+            }
+        }
+        form {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            animation: borderAnimation 5s infinite;
+            font-family: 'Montserrat', sans-serif;
+            z-index:2;
+        }
+        input[type="text"],
+        input[type="number"] {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-family: 'Montserrat', sans-serif;
+            animation:borderAnimation1 1s infinite;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        input[type=submit],input[type=reset]{
+            width: 25%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #474646;
+            color: white;
+            border-radius: 15px;
+            cursor: pointer;
+            border:none;
+            font-family: 'Montserrat', sans-serif;
+            background-color:orange;
+            border:none;
+            text-align:center;
+            box-shadow:0 5px rgb(190, 189, 189);
+        }
+        input[type=submit]:hover,input[type=reset]:hover{
+            background-color:rgb(255, 119, 0);
+        }
+        input[type=submit]:active,input[type=reset]:active{
+            background-color:orangered;
+            box-shadow: 0px 2px rgb(91, 91, 91);
+            transform:translateY(3px);
+        }
+        input[type=submit]{
+            margin-left:50px;
+        }
+
+        input[type=reset]{
+            margin-left:20px;
+        }
+        
+        #submit:hover {
+            background-color: #45a049;
+        }
+        
+        h2, h1 {
+            text-align: center;
+            width: 100%;
+            letter-spacing: 5px;
+            animation:borderAnimation2 5s infinite;
+            margin-top: 0;
+            padding-bottom: 10px;
+            font-family: 'Montserrat', sans-serif;
+            z-index:3;
+        }
+        
+        body {
+            background-color: #1a1a1a;
+            font-family: 'Montserrat', sans-serif;
+            z-index:1;
+        }
+
+    </style>
+    <body>
+        <form method="POST" action="/predict">
+            <h2>Predict Load</h2>
+            <label for="s_timestamp">Start date-time</label>
+            <input type="text" name="s_timestamp" placeholder="2014-12-30 01:00:00"><br><br>
+            <label for="s_timestamp">End date-time</label>
+            <input type="text" name="e_timestamp" placeholder="2014-12-30 01:00:00"><br><br>
+            <label for="temp">Temperature</label>
+            <input type="number" name="temp"><br><br>
+            <input type="submit" value="Predict">
+            <input type="reset" value="clear">
+        </form>
+    </body>
+</html>
